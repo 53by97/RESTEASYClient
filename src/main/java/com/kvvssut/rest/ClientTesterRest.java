@@ -12,7 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.kvvssut.integration.dto.RestDemoRequestResource;
 import com.kvvssut.service.ClientRestService;
@@ -20,7 +21,7 @@ import com.kvvssut.service.ClientRestService;
 @Path("client")
 public class ClientTesterRest {
 	
-	private static final Logger logger = Logger.getLogger(ClientTesterRest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ClientTesterRest.class);
 	
 	@Inject
 	private ClientRestService clientRestService;
@@ -46,7 +47,7 @@ public class ClientTesterRest {
 	@Path("/method/{username}/balance")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getBalanceByUsername(@PathParam("username") String userName) {
-		logger.info("All Done!! Inside");
+		LOGGER.info("Redirecting to RESTEASY Application ...");
 		return	this.clientRestService.doRestDemoCall(userName);
 	}
 

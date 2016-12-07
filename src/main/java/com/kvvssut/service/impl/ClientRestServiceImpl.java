@@ -32,7 +32,6 @@ public class ClientRestServiceImpl implements ClientRestService {
 		try {
 			statuses = restDemoIntgService.callRestEasyDemoApplication(HOST_PATH + PATH_RESTDEMO_APPLICATION, userName);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return Response.status((Integer)statuses[0]).entity(statuses[1]).build();
